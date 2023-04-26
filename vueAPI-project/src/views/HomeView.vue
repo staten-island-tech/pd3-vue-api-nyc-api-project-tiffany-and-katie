@@ -10,8 +10,11 @@ const sat = ref('')
 async function getSat() {
   let res = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
   let data = await res.json()
-  sat.value.values=data.results
+  sat.value=data.results
 }
+onMounted(() =>{
+  getSat()
+})
 </script>
 
 <style lang="scss" scoped>
