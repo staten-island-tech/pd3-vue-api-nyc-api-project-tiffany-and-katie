@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <h1>Main Causes of Death in NY</h1>
+      <h1>Main Causes of Death in NY and its Relation to Sex</h1>
       <select id="filterSelect" @click="filterSelect">
       <option value="alzheimer">Alzheimer's Disease</option>
       <option value="hepatitis">Viral Hepatitis</option>
@@ -13,23 +13,27 @@
       <option value="assault">Assault</option>
       <option value="other">Other Causes</option>
       </select>
+      <div class="barChart">
+      <BarChart v-if="loaded" :chartData="chartData" :chartOptions="chartOptions" />
+      </div>
     </div>
   </template>
 
 <script>
 import BarChart from '../components/BarChart.vue';
-</script>
-<script
-src="https://data.cityofnewyork.us/resource/jb7j-dtam.json">
-<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
-const myChart = new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: "leading_cause"
-  ,
-  dataset: [{
-    data: "deaths",
-  }]}
-});
+export default {
+  name: 'BarView',
+  components: { BarChart},
+  data() {
+    return {
+      loaded: false,
+      chartData: {
+        labels:[],
+        datasets: []
+      },
+      chartOptions: {}
+    }
+  }
+}
 </script>

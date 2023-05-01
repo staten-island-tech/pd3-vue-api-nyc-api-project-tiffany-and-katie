@@ -18,7 +18,15 @@
             required: true,
         },
         chartOptions: {
-          responsive: true
+          type: Object,
+          required: true,
+          default: () => ({
+          scales: {
+          y: {
+            responsive: true
+          }
+        },
+      })
         }
       }
     }

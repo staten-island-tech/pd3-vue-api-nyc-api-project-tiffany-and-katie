@@ -22,7 +22,14 @@
             required: true,
         },
         chartOptions: {
-          responsive: true
+          type: Object,
+          default: () => ({
+          scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+      })
         }
       }
     }
