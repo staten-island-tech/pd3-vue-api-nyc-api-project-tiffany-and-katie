@@ -5,5 +5,5 @@
   </template>
 
 <script>
-import PieChart from '../components/PieChart.vue';
+import PieChart from '../components/PieChart.vue'
 </script>
