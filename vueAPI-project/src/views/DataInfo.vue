@@ -1,7 +1,7 @@
 <template>
     <div class="info">
-        <h1>Sex: {{ sex }}</h1>
-        <h2>Year: {{ year }}</h2>
+        <h2>Sex: {{ sex }}</h2>
+        <h3>Year: {{ year }}</h3>
         <h3>Leading Cause: {{ leading_cause }}</h3>
     </div>
 </template>

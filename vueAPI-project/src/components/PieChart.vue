@@ -11,24 +11,18 @@
     components: {
       Pie
     },
-    data() {
-      return {
-        chartData: {
-            type: Object,
-            required: true,
-        },
-        chartOptions: {
+        props: {
+          chartOptions: {
           type: Object,
           required: true,
           default: () => ({
-          scales: {
-          y: {
             responsive: true
-          }
+          })
         },
-      })
+        chartData: {
+          type: Object,
+          required: true
         }
       }
     }
-  }
   </script>
