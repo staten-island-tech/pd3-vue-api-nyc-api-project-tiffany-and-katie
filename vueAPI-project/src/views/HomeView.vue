@@ -1,26 +1,25 @@
 <template>
   <div class="card">
-    <infoCard v-for="data in info"
+<!--     <infoCard v-for="data in info"
     :key="data.sex"
     :sex="data.sex"
     :year="data.year"
-    :leading_cause="data.leading_cause"/>
+    :leading_cause="data.leading_cause"/> -->
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+/* import { ref, onMounted } from 'vue'
 import infoCard from '../components/DataInfo.vue';
 const info = ref('')
 async function getData() {
   let res = await fetch('https://data.cityofnewyork.us/resource/jb7j-dtam.json')
   let data = await res.json()
   info.value=data.results
-  info.value = data.filter((rest) => rest.race_ethnicity != undefined)
 }
 onMounted(() =>{
   getData()
-})
+}) */
 </script>
 
 <style lang="scss" scoped>

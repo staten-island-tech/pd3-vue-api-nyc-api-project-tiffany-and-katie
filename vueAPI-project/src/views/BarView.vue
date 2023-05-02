@@ -23,6 +23,7 @@
 import BarChart from '../components/BarChart.vue';
 
 export default {
+
   name: 'BarView',
   components: { BarChart},
   data() {
@@ -30,7 +31,7 @@ export default {
       loaded: false,
       chartData: {
         labels:[],
-        datasets: []
+        datasets: [ { data: []}]
       },
       chartOptions: {}
     }
@@ -42,12 +43,14 @@ export default {
           'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
         )
         const data = await response.json()
-        let labels = ['female', 'male']
+        let labels = ['Female', 'Male']
         let gender = []
-        labels.forEach((label) => {
-          gender.push(genderData.filter((rest) => rest.gender === label).length)
+        labels.forEach(() => {
+          gender.push(data.filter((s) => s.gender === label).)
         })
-        this.chartData = {
+        this.chartData.labels.push(labels)
+        this.chartData.datasets[0].data =
+       /*  this.chartData = {
           labels: labels,
           datasets: [
             {
@@ -56,45 +59,14 @@ export default {
               label: 'Diseases'
             }
           ]
-        }
+        } */
         this.loaded = true
       } catch (error) {
         console.log(error)
       }
     },
-    filterSelect: async function() {
-      try{
-        const select = document.getElementById('filterSelect').value
-        if (select == 'All') {
-          this.allSelect()
-        } else {
-          const response = await fetch(
-            'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
-          )
-          const dataset = await response.json()
-          let labels = ['female', 'male']
-          let filtered= []
-          labels.forEach((label) => {
-            filtered.push(dataset.filter((rest) => rest.gender == label).length)
-          })
-          this.chartData = {
-            labels: labels,
-            dataset: [
-              {
-                data: filtered,
-                backgroundColor: '#8eccff',
-                label: 'Diseases'
-            }
-            ]
-          }
-          this.loaded = true
-        }
-      } catch(error){
-        console.error(error)
-      }
-    },
   },
-  async mounted(){
+  mounted(){
     this.allSelect()
   }
 }
