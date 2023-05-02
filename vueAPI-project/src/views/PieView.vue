@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="container">
       <h1>Leading Causes of Deaths Through years</h1>
       <select id="filterSelect" @click="filterSelect">
@@ -78,4 +78,18 @@ export default {
     },
     }
   }
+</script> -->
+<template>
+  <div>
+
+  </div>
+</template>
+
+<script setup>
+
+
 </script>
+
+<style lang="scss" scoped>
+
+</style>

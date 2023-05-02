@@ -46,20 +46,10 @@ export default {
         let labels = ['Female', 'Male']
         let gender = []
         labels.forEach(() => {
-          gender.push(data.filter((s) => s.gender === label).)
+          gender.push(data.filter((s) => s.gender === label).length)
         })
         this.chartData.labels.push(labels)
         this.chartData.datasets[0].data =
-       /*  this.chartData = {
-          labels: labels,
-          datasets: [
-            {
-              data: gender,
-              backgroundColor: '#8ffcce',
-              label: 'Diseases'
-            }
-          ]
-        } */
         this.loaded = true
       } catch (error) {
         console.log(error)
