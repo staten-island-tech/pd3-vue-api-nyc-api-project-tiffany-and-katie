@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
 
-  <RouterLink to="/">home</RouterLink>
+  <RouterLink to="/">Home</RouterLink>
   <RouterLink to="/BarView">Bar View</RouterLink>
   <RouterLink to="/PieView">Pie View</RouterLink>
   <RouterView />
