@@ -34,6 +34,68 @@ export default {
       },
       chartOptions: {}
     }
+  },
+  methods: {
+    allSelect: async function() {
+      try{
+        const response = await fetch (
+          'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
+        )
+        const data = await response.json()
+        let labels = ['female', 'male']
+        let gender = []
+        labels.forEach((label) => {
+          gender.push(genderData.filter((rest) => rest.gender === label).length)
+        })
+        this.chartData = {
+          labels: labels,
+          datasets: [
+            {
+              data: gender,
+              backgroundColor: '#8ffcce',
+              label: 'Diseases'
+            }
+          ]
+        }
+        this.loaded = true
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    filterSelect: async function() {
+      try{
+        const select = document.getElementById('filterSelect').value
+        if (select == 'All') {
+          this.allSelect()
+        } else {
+          const response = await fetch(
+            'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
+          )
+          const dataset = await response.json()
+          let labels = ['female', 'male']
+          let filtered= []
+          labels.forEach((label) => {
+            filtered.push(dataset.filter((rest) => rest.gender == label).length)
+          })
+          this.chartData = {
+            labels: labels,
+            dataset: [
+              {
+                data: filtered,
+                backgroundColor: '#8eccff',
+                label: 'Diseases'
+            }
+            ]
+          }
+          this.loaded = true
+        }
+      } catch(error){
+        console.error(error)
+      }
+    },
+  },
+  async mounted(){
+    this.allSelect()
   }
 }
 </script>
