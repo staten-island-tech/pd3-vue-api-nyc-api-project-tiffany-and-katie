@@ -61,7 +61,7 @@ onMounted(async () => {
 </script>
 <style>
 .title{
-  font-size: 15px;
+  font-size: 35px;
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-align: center;

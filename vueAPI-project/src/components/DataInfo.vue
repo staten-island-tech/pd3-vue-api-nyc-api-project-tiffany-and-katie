@@ -1,6 +1,6 @@
 <template>
     <div class="info">
-        <h2>Sex: {{ sex }}</h2>
+        <h2>Gender: {{ sex }}</h2>
         <h3>Year: {{ year }}</h3>
         <h3>Leading Cause: {{ leading_cause }}</h3>
     </div>
