@@ -1,5 +1,5 @@
 <template>
-      <h1>Deaths Each Year</h1>
+      <h1 class="text">Deaths Each Year</h1>
       <div class="barChart">
       <Bar v-if="loaded" :data="chartData" :options="chartOptions" />
       </div>
@@ -62,3 +62,11 @@ onMounted(async () => {
   }
 })
 </script>
+<style>
+.text{
+  font-size: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  text-align: center;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <h1>Deaths in Relation to Gender</h1>
+  <h1 class="title">Deaths in Relation to Gender</h1>
   <div class="container">
     <Pie v-if="loaded" :data="chartData" :options="chartOptions" />
   </div>
@@ -60,4 +60,10 @@ onMounted(async () => {
 })
 </script>
 <style>
+.title{
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+}
 </style>
